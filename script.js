@@ -1,28 +1,9 @@
-//get reference for gridSizeBtn to add eventListener
-const gridSizeBtn = document.querySelector("#gridSizeBtn");
-gridSizeBtn.addEventListener("click", () => {
-    let size = getGridSize();
-    createGrid(size);
-    document.getElementById("gridSizeBtn").style.display = "none";
-    addResetBtn();
-})
-
-function addResetBtn() {
-    const startResetDiv = document.querySelector("#startReset");
-    const resetBtn = document.createElement("button");
-    resetBtn.textContent = "Reset";
-    startResetDiv.appendChild(resetBtn);
-    resetBtn.addEventListener("click", () => {
-        location.reload();
-    })
-}
-
-function getGridSize() { 
-    let input = (prompt("Enter canvas size"));       
-        while (isNaN(input) || input == "") {
-            input = (prompt("Enter canvas size")); 
-        }
-        return parseInt(input);
+function getGridSize() {    
+    let input;  
+    while (isNaN(input) || input == "" || input > 100 || input <= 0) {
+        input = (prompt("Enter canvas size (number between 1 and 100"));  
+    }
+    return input;
 }
 
 function createGrid(size) {
@@ -35,10 +16,34 @@ function createGrid(size) {
     //add divs to the grid
     let divNum = size * size;
     for (let i = 0; i < divNum; i++) {
-        const div = document.createElement("div");
-        div.setAttribute("id", i + 1);
+        let div = document.createElement("div");
         div.setAttribute("class", "gridItem");
+        div.style.backgroundColor = "lightgreen";
         canvas.appendChild(div);
     }
 }
 
+function addResetBtn() {
+    const buttonsTop = document.querySelector("#buttonsTop");
+    const resetBtn = document.createElement("button");
+    resetBtn.textContent = "Reset";
+    buttonsTop.appendChild(resetBtn);
+    resetBtn.addEventListener("click", () => {
+        location.reload();
+    })
+}
+
+function start() {
+    //get reference for gridSizeBtn to add eventListener
+    const gridSizeBtn = document.querySelector("#gridSizeBtn");
+    gridSizeBtn.addEventListener("click", () => {
+        const size = getGridSize();
+        createGrid(size);
+        document.getElementById("gridSizeBtn").style.display = "none";
+        addResetBtn();
+    })
+}
+
+createGrid(16);
+
+start();

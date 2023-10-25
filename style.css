@@ -19,12 +19,3 @@ button {
     margin-bottom: 24px;
 }
 
-.gridItem {
-    border: solid black 1px;
-    background-color: lightgreen;
-}
-
-#startReset {
-    display: flex;
-    flex-direction: row;
-}
