@@ -17,9 +17,6 @@ document.querySelector("body").addEventListener("click", (e) => {
     }
 })
 
-
-
-
 function getGridSize() {    
     let input;  
     while (isNaN(input) || input == "" || input > 100 || input <= 0) {
@@ -102,8 +99,6 @@ const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", () => {
     reset();
 })
-
-
 
 
 createGrid(16);
