@@ -50,8 +50,11 @@ function createGrid(size) {
 
 function colorDiv() {
     if (click) {
-        if (color == "random") {
+        if (color === "random") {
             this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        }
+        else if (color === "white") {
+            this.style.backgroundColor = "white";
         }
         else {
             this.style.backgroundColor = "black";
@@ -76,12 +79,6 @@ gridSizeBtn.addEventListener("click", () => {
     createGrid(size);
 })
 
-//reset button
-const resetBtn = document.querySelector("#reset");
-resetBtn.addEventListener("click", () => {
-    reset();
-})
-
 //black button
 const colorBtn = document.querySelector("#black");
 colorBtn.addEventListener("click", () => {
@@ -93,6 +90,20 @@ const colorRandomBtn = document.querySelector("#randomColor");
 colorRandomBtn.addEventListener("click", () => {
     color = "random";
 })
+
+//erase button
+const eraseBtn = document.querySelector("#erase");
+eraseBtn.addEventListener("click", () => {
+    color = "white";
+})
+
+//reset button
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", () => {
+    reset();
+})
+
+
 
 
 createGrid(16);

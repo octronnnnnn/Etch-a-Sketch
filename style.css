@@ -5,8 +5,8 @@ body {
 }
 
 #canvas {
-    height: 500px;
-    width: 500px;
+    height: 650px;
+    width: 650px;
     border: solid 2px black;
     display: grid;
     margin: 24px 024px;
@@ -17,5 +17,12 @@ h1 {
 }
 
 button {
-    margin: 0 2px 12px 2px;
+    margin-bottom: 10px;
+}
+
+#buttonContainer {
+    width: 650px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
 }
