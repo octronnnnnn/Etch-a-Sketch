@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: aliceblue;
 }
 
 #canvas {
@@ -20,7 +21,7 @@ button {
     margin-bottom: 10px;
     padding: 4px;
     border: 1px solid black;
-    background-color: rgb(220, 235, 236);
+    background-color: rgb(223, 239, 255);
 }
 
 #black {
@@ -37,8 +38,8 @@ button {
 }
 
 #buttonContainer {
-    width: 650px;
     display: flex;
     justify-content: center;
     gap: 24px;
+    background-color: aliceblue !important;
 }
