@@ -1,6 +1,25 @@
 //set default color
 let color = "black";
 
+//create variable to toggel drawing 
+let click = false;
+
+document.querySelector("body").addEventListener("click", (e) => {
+    if (e.target.tagName != "BUTTON") {
+        click = !click;
+        let draw = document.querySelector("#draw");
+        if (click) {
+            draw.innerHTML = "You can draw now!";
+        }
+        else {
+            draw.innerHTML = "Click to start drawing!";
+        }
+    }
+})
+
+
+
+
 function getGridSize() {    
     let input;  
     while (isNaN(input) || input == "" || input > 100 || input <= 0) {
@@ -30,13 +49,15 @@ function createGrid(size) {
 }
 
 function colorDiv() {
-    if (color == "random") {
-        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    if (click) {
+        if (color == "random") {
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        }
+        else {
+            this.style.backgroundColor = "black";
+        }
     }
-    else {
-        this.style.backgroundColor = "black";
     }
-}
 
 function reset() {
     let divs = document.querySelectorAll("div");
@@ -45,7 +66,6 @@ function reset() {
     })
 }
 
-let click = false;
 
 //UI buttons
 
@@ -62,7 +82,7 @@ resetBtn.addEventListener("click", () => {
     reset();
 })
 
-//color button
+//black button
 const colorBtn = document.querySelector("#black");
 colorBtn.addEventListener("click", () => {
     color = "black";
