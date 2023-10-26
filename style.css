@@ -9,6 +9,7 @@ body {
     width: 500px;
     border: solid 2px black;
     display: grid;
+    margin: 24px 024px;
 }
 
 h1 {
@@ -16,6 +17,5 @@ h1 {
 }
 
 button {
-    margin-bottom: 24px;
+    margin: 0 2px 0 2px;
 }
-

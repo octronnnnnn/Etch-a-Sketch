@@ -1,3 +1,6 @@
+//set default color
+let color = "black";
+
 function getGridSize() {    
     let input;  
     while (isNaN(input) || input == "" || input > 100 || input <= 0) {
@@ -7,9 +10,11 @@ function getGridSize() {
 }
 
 function createGrid(size) {
-    //get reference to canvasDiv to add grid style to it
+    //if divs were previously colored, turn them white again
+    reset();
+    //get reference to canvasDiv to add grid
     let canvas = document.querySelector("#canvas");
-    //add amount of columns and rows to grid
+    //add amount of columns and rows
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
@@ -17,33 +22,57 @@ function createGrid(size) {
     let divNum = size * size;
     for (let i = 0; i < divNum; i++) {
         let div = document.createElement("div");
-        div.setAttribute("class", "gridItem");
-        div.style.backgroundColor = "lightgreen";
         canvas.appendChild(div);
+
+        //add color on mouseover
+        div.addEventListener("mouseover", colorDiv);
     }
 }
 
-function addResetBtn() {
-    const buttonsTop = document.querySelector("#buttonsTop");
-    const resetBtn = document.createElement("button");
-    resetBtn.textContent = "Reset";
-    buttonsTop.appendChild(resetBtn);
-    resetBtn.addEventListener("click", () => {
-        location.reload();
+function colorDiv() {
+    if (color == "random") {
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    }
+    else {
+        this.style.backgroundColor = "black";
+    }
+}
+
+function reset() {
+    let divs = document.querySelectorAll("div");
+    divs.forEach((div) => {
+        div.style.backgroundColor = "white";
     })
 }
 
-function start() {
-    //get reference for gridSizeBtn to add eventListener
-    const gridSizeBtn = document.querySelector("#gridSizeBtn");
-    gridSizeBtn.addEventListener("click", () => {
-        const size = getGridSize();
-        createGrid(size);
-        document.getElementById("gridSizeBtn").style.display = "none";
-        addResetBtn();
-    })
-}
+let click = false;
+
+//UI buttons
+
+//canvas size
+const gridSizeBtn = document.querySelector("#gridSizeBtn");
+gridSizeBtn.addEventListener("click", () => {
+    const size = getGridSize();
+    createGrid(size);
+})
+
+//reset button
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", () => {
+    reset();
+})
+
+//color button
+const colorBtn = document.querySelector("#black");
+colorBtn.addEventListener("click", () => {
+    color = "black";
+})
+
+//random color button
+const colorRandomBtn = document.querySelector("#randomColor");
+colorRandomBtn.addEventListener("click", () => {
+    color = "random";
+})
+
 
 createGrid(16);
-
-start();
