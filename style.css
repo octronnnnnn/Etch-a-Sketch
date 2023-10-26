@@ -18,6 +18,22 @@ h1 {
 
 button {
     margin-bottom: 10px;
+    padding: 4px;
+    border: 1px solid black;
+    background-color: rgb(220, 235, 236);
+}
+
+#black {
+    background-color: black;
+    color: white;
+}
+
+#randomColor {
+    background: linear-gradient(-60deg, rgb(68, 85, 238) 10%, rgb(83, 122, 206) 30%, rgb(76, 170, 76) 40%, rgb(247, 247, 115) 60%, rgb(240, 68, 68) 90%);
+}
+
+#erase {
+    background-color: white;
 }
 
 #buttonContainer {
