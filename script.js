@@ -18,12 +18,6 @@ document.querySelector("body").addEventListener("click", (e) => {
 })
 
 function getGridSize() {    
-    /* let input;  
-    while (isNaN(input) || input == "" || input > 100 || input <= 0) {
-        input = (prompt("Enter canvas size (number between 1 and 100"));  
-    }
-    return input; */
-
     let input;
     input = prompt("Enter cavans size (number between 1 and 100)");
     if (input === null) {
