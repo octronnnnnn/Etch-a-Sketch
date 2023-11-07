@@ -9,20 +9,32 @@ document.querySelector("body").addEventListener("click", (e) => {
         click = !click;
         let draw = document.querySelector("#draw");
         if (click) {
-            draw.innerHTML = "You can draw now!";
+            draw.innerHTML = "Drawing mode! Click again to stop drawing.";
         }
         else {
-            draw.innerHTML = "Click to start drawing!";
+            draw.innerHTML = "You stopped drawing! Click to start drawing again.";
         }
     }
 })
 
 function getGridSize() {    
-    let input;  
+    /* let input;  
     while (isNaN(input) || input == "" || input > 100 || input <= 0) {
         input = (prompt("Enter canvas size (number between 1 and 100"));  
     }
-    return input;
+    return input; */
+
+    let input;
+    input = prompt("Enter cavans size (number between 1 and 100)");
+    if (input === null) {
+        return;
+    }
+    else if (isNaN(input) || input == "" || input > 100 || input <= 0) {
+        alert("Please enter a number between 1 and 100");
+    }
+    else {
+        return input;
+    }
 }
 
 function createGrid(size) {
@@ -57,7 +69,7 @@ function colorDiv() {
             this.style.backgroundColor = "black";
         }
     }
-    }
+}
 
 function reset() {
     let divs = document.querySelectorAll("div");
