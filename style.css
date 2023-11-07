@@ -2,26 +2,30 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aliceblue;
+    background-color: rgb(221, 231, 240);
+    
 }
 
 #canvas {
     height: 650px;
     width: 650px;
-    border: solid 2px black;
+    border: solid 1px rgb(250, 250, 250);
     display: grid;
     margin: 24px 024px;
+    box-shadow: 8px 8px 8px rgb(91, 102, 116);
 }
 
 h1 {
     margin: 24px;
+    text-decoration: underline;
 }
 
 button {
     margin-bottom: 10px;
     padding: 4px;
     border: 1px solid black;
-    background-color: rgb(223, 239, 255);
+    background-color: rgb(221, 231, 240) ;
+    
 }
 
 #black {
@@ -33,7 +37,7 @@ button {
     background: linear-gradient(-60deg, rgb(68, 85, 238) 10%, rgb(83, 122, 206) 30%, rgb(76, 170, 76) 40%, rgb(247, 247, 115) 60%, rgb(240, 68, 68) 90%);
 }
 
-#erase {
+#erase, #gridSizeBtn {
     background-color: white;
 }
 
@@ -41,5 +45,19 @@ button {
     display: flex;
     justify-content: center;
     gap: 24px;
-    background-color: aliceblue !important;
+    background-color: rgb(221, 231, 240) !important;
+}
+
+button:active {
+    transform: translateY(2px)!important;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#draw {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
 }
