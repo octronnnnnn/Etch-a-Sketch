@@ -1,7 +1,7 @@
-//set default color
+// set default color
 let color = "black";
 
-//create variable to toggel drawing 
+// create variable to toggel drawing 
 let click = false;
 
 document.querySelector("body").addEventListener("click", (e) => {
@@ -32,35 +32,51 @@ function getGridSize() {
 }
 
 function createGrid(size) {
-    //if divs were previously colored, turn them white again
+    // if divs were previously colored, turn them white again
     reset();
-    //get reference to canvasDiv to add grid
+    // get reference to canvasDiv to add grid
     let canvas = document.querySelector("#canvas");
-    //add amount of columns and rows
+    // add amount of columns and rows
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-    //add divs to the grid
+    // add divs to the grid
     let divNum = size * size;
     for (let i = 0; i < divNum; i++) {
         let div = document.createElement("div");
         canvas.appendChild(div);
 
-        //add color on mouseover
+        // add color on mouseover
         div.addEventListener("mouseover", colorDiv);
     }
 }
 
 function colorDiv() {
     if (click) {
-        if (color === "random") {
-            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        }
-        else if (color === "white") {
-            this.style.backgroundColor = "white";
-        }
-        else {
-            this.style.backgroundColor = "black";
+        switch (color) {
+            case "white":
+                this.style.backgroundColor = "white";
+                break;
+            case "rainbow":
+                this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                break;
+            case "red":
+                this.style.backgroundColor = "red";
+                break;
+            case "green":
+                this.style.backgroundColor = "green";
+                break;
+            case "yellow":
+                this.style.backgroundColor = "yellow";
+                break;
+            case "brown":
+                this.style.backgroundColor = "brown";
+                break;
+            case "blue":
+                this.style.backgroundColor = "blue";
+                break;
+            default:
+                this.style.backgroundColor = "black";         
         }
     }
 }
@@ -73,34 +89,24 @@ function reset() {
 }
 
 
-//UI buttons
+// UI buttons
 
-//canvas size
+// canvas size
 const gridSizeBtn = document.querySelector("#gridSizeBtn");
 gridSizeBtn.addEventListener("click", () => {
     const size = getGridSize();
     createGrid(size);
 })
 
-//black button
-const colorBtn = document.querySelector("#black");
-colorBtn.addEventListener("click", () => {
-    color = "black";
+// color buttons
+const colorBtns = document.querySelectorAll(".color");
+colorBtns.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        color = e.target.id;
+    })
 })
 
-//random color button
-const colorRandomBtn = document.querySelector("#randomColor");
-colorRandomBtn.addEventListener("click", () => {
-    color = "random";
-})
-
-//erase button
-const eraseBtn = document.querySelector("#erase");
-eraseBtn.addEventListener("click", () => {
-    color = "white";
-})
-
-//reset button
+// reset button
 const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", () => {
     reset();
