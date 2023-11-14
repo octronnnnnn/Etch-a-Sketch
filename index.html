@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
         <button id="gridSizeBtn" type="button">Canvas size</button>
-        <p id="draw">Left click to toggle drawing!</p>
+        <div id="toggleMode">
+            <span id="draw">Left click to toggle drawing!</span>
+        </div>
     <div id="canvas">
     </div>
     <div id="buttonContainer">
-        <button id="black" class="color">Black</button>
-        <button id="red" class="color">Red</button>
-        <button id="green" class="color">Green</button>
-        <button id="blue" class="color">Blue</button>
-        <button id="yellow" class="color">Yellow</button>
-        <button id="brown" class="color">Brown</button>
-        <button id="rainbow" class="color">Rainbow</button>
+        <button id="black" class="color"></button>
+        <button id="red" class="color"></button>
+        <button id="green" class="color"></button>
+        <button id="blue" class="color"></button>
+        <button id="yellow" class="color"></button>
+        <button id="brown" class="color"></button>
+        <button id="rainbow" class="color"></button>
         <button id="white" class="color">Erase</button>
         <button id="reset">Reset</button>
     </div>

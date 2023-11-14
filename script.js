@@ -1,21 +1,4 @@
-// set default color
-let color = "black";
-
-// create variable to toggel drawing 
-let click = false;
-
-document.querySelector("body").addEventListener("click", (e) => {
-    if (e.target.tagName != "BUTTON") {
-        click = !click;
-        let draw = document.querySelector("#draw");
-        if (click) {
-            draw.innerHTML = "Drawing mode! Click again to stop drawing.";
-        }
-        else {
-            draw.innerHTML = "You stopped drawing! Click to start drawing again.";
-        }
-    }
-})
+let color;
 
 function getGridSize() {    
     let input;
@@ -88,6 +71,22 @@ function reset() {
     })
 }
 
+// create variable to toggel drawing 
+let click = false;
+
+document.querySelector("body").addEventListener("click", (e) => {
+    if (e.target.tagName != "BUTTON") {
+        click = !click;
+        let draw = document.querySelector("#draw");
+        if (click) {
+            draw.innerHTML = "Drawing mode! Click again to stop drawing.";
+        }
+        else {
+            draw.innerHTML = "You stopped drawing! Click to start drawing again.";
+        }
+    }
+})
+
 
 // UI buttons
 
@@ -112,5 +111,5 @@ resetBtn.addEventListener("click", () => {
     reset();
 })
 
-
+// create default 16x16 canvas
 createGrid(16);
