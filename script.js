@@ -79,10 +79,12 @@ document.querySelector("body").addEventListener("click", (e) => {
         click = !click;
         let draw = document.querySelector("#draw");
         if (click) {
-            draw.innerHTML = "Drawing mode! Click again to stop drawing.";
+            draw.innerHTML = "Painting!";
+            draw.style.color = "Lightgreen";
         }
         else {
-            draw.innerHTML = "You stopped drawing! Click to start drawing again.";
+            draw.innerHTML = "Not painting!";
+            draw.style.color = "Coral";
         }
     }
 })
